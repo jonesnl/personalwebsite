@@ -1,10 +1,14 @@
 from django.conf.urls import patterns, include, url
 
+from frontpage import views
+
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+                       url(r'^$', views.index, name='index'),
+
     # Examples:
     # url(r'^$', 'personalsite.views.home', name='home'),
     # url(r'^personalsite/', include('personalsite.foo.urls')),
