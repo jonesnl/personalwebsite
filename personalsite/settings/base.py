@@ -1,4 +1,8 @@
 # Django settings for personalsite project.
+import os
+import personalsite
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(personalsite.__file__))
 
 DEBUG = False  # set in dev.py and prod.py
 TEMPLATE_DEBUG = DEBUG
@@ -108,6 +112,7 @@ ROOT_URLCONF = 'personalsite.urls'
 WSGI_APPLICATION = 'personalsite.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(PROJECT_DIR, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
