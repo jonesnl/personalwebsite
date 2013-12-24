@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Personal Website of Nate Jones</title>
+    <title>{% block title %}Personal Website of Nate Jones{% endblock %}</title>
 </head>
 <body>
-Welcome to Nathaniel-Jones.com! <p />
+<p> <a href="{% url 'index' %}">Home</a>
+    <a href="https://umich.box.com/shared/static/nw196ge3rxkh05on52v2.pdf">Resume</a>
+</p>
 
-The site is currently being developed in my free time, but hopefully it will be
-up and running within a few months!
+<br>
+{% block content %}
+
+{% endblock %}
 </body>
 </html>
