@@ -4,7 +4,7 @@ import sys
 import socket
 
 if __name__ == "__main__":
-    if socket.gethostname() == 'PersonalSite':
+    if socket.gethostname() == 'PersonalWebsite':
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "personalsite.settings.prod")
     else: 
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "personalsite.settings.dev")
