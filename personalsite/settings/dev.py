@@ -1,3 +1,3 @@
-from personalsite.settings.base import *
+from personalsite.settings import base
 
 DEBUG = True
