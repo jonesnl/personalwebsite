@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="title">
-        <h1>Who Am I?</h1>
-    </div>
+<div class="row">
+    <div class="text col-md-8">
+        <h1 class="title">Who Am I?</h1>
 
-    <div class="text">
         <p>Hello Internet! I'm Nate Jones, a Computer Science student at the University of Michigan.</p>
 
         <p>If you have made it here, then you are probably wondering who I am, and what I do. Well here's my background:</p>
@@ -49,4 +48,18 @@
             Thanks! Nate
         </p>
     </div>
+
+    <div class="col-md-4 music">
+        <h2>Currently Playing</h2>
+        <br>
+        <dl>
+        {% for track in track_list %}
+            <dt>{{ track.name }}</dt>
+            <dd>{{ track.artist }}</dd>
+            <br>
+        {% endfor %}
+        </dl>
+        </div>
+    </div>
+</div>
 {% endblock %}
