@@ -1,52 +1,11 @@
 {% extends "base.html" %}
 
+{% load markdown %}
+
 {% block content %}
 <div class="row">
     <div class="text col-md-8">
-        <h1 class="title">Who Am I?</h1>
-
-        <p>Hello Internet! I'm Nate Jones, a Computer Science student at the University of Michigan.</p>
-
-        <p>If you have made it here, then you are probably wondering who I am, and what I do. Well here's my background:</p>
-
-        <p>Originally I was a high school student at Cedar Springs High School in West Michigan. Most of my time was spent
-            either with the high school band or with the track team. I enjoyed messing with
-            technology, but didn't start programming until I got into college.</p>
-
-        <p>Once I got into college, I picked up programming pretty quickly, and was lucky enough to join an awesome project
-            called <a href="http://www.whispercomm.org/">Whisper</a> my freshman year, which is working on creating applications
-            and technology that circumvents censorship. As I was still relatively new to programming, most of my work was
-            fixing simple bugs and creating tools for other developers.
-        </p>
-
-        <p>Unfortunately due to personal money and time constraints, I had to leave the project at the end of the summer of
-            2013. I currently work IT at the University.
-        </p>
-
-        <br>
-
-        <p>
-            I'm still figuring out what my interests are in the Computer Science world, so I'm learning about many different
-            fields to see what I want to focus on in school.
-        </p>
-
-        <p>
-            Most of my current experience is with C++ (what most CS classes here are taught in). I worked with Java (and Android)
-            while I worked with the Whisper project. I built this website in my free time using Python and Django. Projects and
-            such will be hosted here eventually.
-        </p>
-
-        <p>
-            If you're looking for my resume, there is a link at the top of the page.
-        </p>
-
-        <p>
-            If you have any other questions, you can shoot me an email at <a href="mailto:jonesnl@umich.edu">jonesnl@umich.edu</a>
-        </p>
-
-        <p>
-            Thanks! Nate
-        </p>
+        {{ front_body|my_markdown }}
     </div>
 
     <div class="col-md-4 music">

@@ -17,6 +17,6 @@ def my_markdown(value):
 
     return mark_safe(markdown.markdown(force_text(value),
                                        extensions,
-                                       safe_mode=True,
+                                       safe_mode=False,
                                        enable_attributes=False,
                                        ))
