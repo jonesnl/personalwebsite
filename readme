@@ -1,1 +1,4 @@
-My personal webserver, using Python 3.3.3 and Django 1.6.5
+My personal webserver, using:
+Python 3.3.3 
+Django 1.6.5
+Python-Markdown 2.4.1
