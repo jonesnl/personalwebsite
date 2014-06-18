@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load markdown %}
+
 {% block navbar %}
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -31,7 +33,7 @@
     <div class="author">{{ author_first }} {{ author_last }}</div>
 
     <div class="text">
-    {{ body|linebreaks }}
+    {{ body|my_markdown }}
     </div>
 
     <div class="date">{{ created }}</div>

@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     #project apps
     'frontpage',
     'blog',
+    'personalsite',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
