@@ -3,6 +3,15 @@ Python 3.3.3
 Django 1.6.5
 Python-Markdown 2.4.1
 
+
 Database notes:
 Front page body is under key "front_body" in table "frontpage_data"
 
+
+Settings:
+Settings are located in /etc/personalsite:
+    lastfm_api_key.txt has the api key needed for pulling data from lastfm
+    personalsite.sqlite3 is the database for the site
+    django_secret_key.txt is Django's secret key
+
+All of these are imported in the settings files

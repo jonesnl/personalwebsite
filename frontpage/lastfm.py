@@ -1,5 +1,6 @@
 import urllib.request
 from xml.etree import ElementTree
+from django.conf import settings
 
 
 class Track:
@@ -14,7 +15,7 @@ def pull_from_lastfm(num_tracks):
         urllib.request.urlopen('http://ws.audioscrobbler.com/2.0/'
                                '?method=user.getrecenttracks&'
                                'user=mulligan7nbj&'
-                               'api_key=796f29462447bc00fad151f0617ddf9b')
+                               'api_key=' + settings.LASTFM_API_KEY)
     xml_data = response.read()
 
     root = ElementTree.fromstring(xml_data)

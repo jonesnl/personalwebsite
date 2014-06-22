@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_DIR, 'database.sqlite3'),                      # Or path to database file if using sqlite3.
+        'NAME': '/etc/personalsite/personalsite.sqlite3',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -88,7 +88,8 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '&*re=brfz#u_!f^zg(0+825$l98g@!0n3hy)ex664g&)c72dc9'
+with open('/etc/personalsite/django_secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -168,3 +169,7 @@ LOGGING = {
     }
 }
 
+# Site specific settings
+
+with open('/etc/personalsite/lastfm_api_key.txt') as f:
+    LASTFM_API_KEY = f.read().strip()
