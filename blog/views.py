@@ -41,10 +41,8 @@ def latest_posts(request, page_num=1):
         older_posts = False
 
     if page_num > 0:
-        print(page_num)
         newer_posts = True
     else:
-        print(page_num)
         newer_posts = False
 
     context = RequestContext(request, {
