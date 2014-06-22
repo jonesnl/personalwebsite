@@ -35,6 +35,10 @@ body {
     padding-top: 20px;
 }
 
+.date a {
+    color:black;
+}
+
 .music {
     font-size: 80%;
 }

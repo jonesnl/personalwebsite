@@ -4,6 +4,6 @@ from blog import views
 
 urlpatterns = patterns('',
                        url(r'^(?P<post_id>\d+)', views.post),
-                       url(r'^latest$', views.latest_post),
-                       url(r'^$', views.latest_post, name='blog'),
+                       url(r'^page/(?P<page_num>\d+)', views.latest_posts),
+                       url(r'^$', views.latest_posts, name='blog'),
 )
