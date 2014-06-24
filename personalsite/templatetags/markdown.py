@@ -13,7 +13,7 @@ register = template.Library()
 @register.filter(is_safe=True)
 @stringfilter
 def my_markdown(value):
-    extensions = []
+    extensions = ['fenced_code']
 
     return mark_safe(markdown.markdown(force_text(value),
                                        extensions,
