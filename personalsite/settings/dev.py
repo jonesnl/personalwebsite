@@ -65,7 +65,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/jonesnl/static/'
+STATIC_ROOT = '/home/www/static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -88,8 +88,12 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-with open('/etc/personalsite/django_secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+try:
+    with open('/etc/personalsite/django_secret_key.txt') as f:
+        SECRET_KEY = f.read().strip()
+except IOError:
+    print("USING UNSECURE SECRET KEY!!!!!!!!!")
+    SECRET_KEY = r"-+svf&9g^gtqfa87$2@pz(y4d1q$i8f4gk^*^svam7gogy*u$i"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -138,6 +142,8 @@ INSTALLED_APPS = (
     'personalsite',
 )
 
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging
@@ -171,5 +177,9 @@ LOGGING = {
 
 # Site specific settings
 
-with open('/etc/personalsite/lastfm_api_key.txt') as f:
-    LASTFM_API_KEY = f.read().strip()
+try:
+    with open('/etc/personalsite/lastfm_api_key.txt') as f:
+        LASTFM_API_KEY = f.read().strip()
+except IOError:
+    print("NO LAST FM API KEY")
+    LASTFM_API_KEY = ""
