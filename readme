@@ -1,12 +1,11 @@
 My personal webserver, using:
-Python 3.3.3 
-Django 1.6.5
+Python 3.2
+Django 1.7
 Python-Markdown 2.4.1
 
 
 Database notes:
 Front page body is under key "front_body" in table "frontpage_data"
-
 
 Settings:
 Settings are located in /etc/personalsite:
@@ -15,3 +14,11 @@ Settings are located in /etc/personalsite:
     django_secret_key.txt is Django's secret key
 
 All of these are imported in the settings files
+
+For the admin page, the default user is root, with a password of admin. Obviously you can create your own using Django's
+create super user functionality.
+
+Files that will need to be edited and copied without the .template extension when setting up:
+    testing\salt\roots\personalsite_conf\django_secret_key.txt.template (should change when moving to production)
+    testing\salt\roots\personalsite_conf\lastfm_api_key.txt.template (must get API key from last.fm)
+    testing\salt\roots\personalsite_conf\personalsite.sqlite3.template (can be copied directly)
