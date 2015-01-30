@@ -1,0 +1,44 @@
+.navbar {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+body {
+    padding-top: 50px;
+    font-size: 18px;
+}
+
+.starter-template {
+    padding: 40px 15px;
+}
+
+.title {
+    text-align: center;
+}
+
+.author {
+    font-size: 150%;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.text {
+    text-align: left;
+}
+
+.date {
+    font-size: 80%;
+    opacity: 0.4;
+    padding-top: 20px;
+}
+
+.date a {
+    color:black;
+}
+
+.music {
+    font-size: 80%;
+}

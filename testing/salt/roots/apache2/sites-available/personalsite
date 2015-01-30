@@ -1,0 +1,63 @@
+WSGIPythonPath /home/www/personalsite:/usr/lib/python3/dist-packages
+
+#NameVirtualHost *:80
+<VirtualHost _default_:80>
+	DocumentRoot /var/www/html
+	ServerName localhost:80
+	
+	ErrorLog /var/log/apache2/personalsite-unsecure-error_log
+	CustomLog /var/log/apache2/personalsite-unsecure-access_log common
+
+	Alias /static/ /home/www/static/
+
+	<Directory /home/www/static>
+	Allow from all
+	</Directory>
+
+	WSGIScriptAlias / /home/www/personalsite/personalsite/wsgi.py
+
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} ^/admin
+	RewriteRule .* https://localhost/
+
+	<Directory /home/www/personalsite>
+	<Files wsgi.py>
+	Order allow,deny
+	Allow from all
+	</Files>
+	</Directory>
+</VirtualHost>
+
+#NameVirtualHost *:443
+<VirtualHost _default_:443>
+	SSLEngine On
+	SSLCertificateFile /etc/apache2/ssl/server.crt
+	SSLCertificateKeyFile /etc/apache2/ssl/server.key
+
+	#ServerAdmin root@localhost
+	DocumentRoot /var/www/html
+	ServerName localhost:443
+	
+	ErrorLog /var/log/apache2/personalsite-secure-error_log
+	CustomLog /var/log/apache2/personalsite-secure-access_log common
+
+	Alias /static/ /home/www/static/
+
+	<Directory /home/www/static>
+	Allow from all
+	</Directory>
+
+	WSGIScriptAlias / /home/www/personalsite/personalsite/wsgi.py
+
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} !^/admin
+	RewriteCond %{REQUEST_URI} !^/static
+	RewriteRule .* http://localhost/
+
+	<Directory /home/www/personalsite>
+	<Files wsgi.py>
+	Order allow,deny
+	Allow from all
+	</Files>
+	</Directory>
+</VirtualHost>

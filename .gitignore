@@ -40,3 +40,8 @@ nosetests.xml
 *~
 *.sqlite3
 .vagrant/
+
+django_secret_key.txt
+lastfm_api_key.txt
+server.crt
+server.key

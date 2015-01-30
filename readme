@@ -19,6 +19,11 @@ For the admin page, the default user is root, with a password of admin. Obviousl
 create super user functionality.
 
 Files that will need to be edited and copied without the .template extension when setting up:
-    testing\salt\roots\personalsite_conf\django_secret_key.txt.template (should change when moving to production)
-    testing\salt\roots\personalsite_conf\lastfm_api_key.txt.template (must get API key from last.fm)
-    testing\salt\roots\personalsite_conf\personalsite.sqlite3.template (can be copied directly)
+    testing/salt/roots/personalsite_conf/django_secret_key.txt.template (should change when moving to production)
+    testing/salt/roots/personalsite_conf/lastfm_api_key.txt.template (must get API key from last.fm)
+    testing/salt/roots/personalsite_conf/personalsite.sqlite3.template (can be copied directly)
+    testing/salt/roots/ssl/server.crt.template (see below)
+    testing/salt/roots/ssl/server.key.template (see below)
+
+Gereate your own keys by running this command in the testing/salt/roots/ssl directory:
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt

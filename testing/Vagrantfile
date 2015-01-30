@@ -9,12 +9,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # options are documented and commented below. For a complete reference,
     # please see the online documentation at vagrantup.com.
 
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+    end
+
     # Every Vagrant virtual environment requires a box to build off of.
     config.vm.box = "puphpet/debian75-x64"
 
 
     # For masterless, mount your salt file root
     config.vm.synced_folder "salt/roots/", "/srv/salt/"
+    config.vm.synced_folder "../", "/srv/salt/personalsite"
+
+    # Networking
+    config.vm.network :forwarded_port, host: 80, guest: 80
+    config.vm.network :forwarded_port, host: 443, guest: 443
+
 
     ## Use all the defaults:
     config.vm.provision :salt do |salt|
