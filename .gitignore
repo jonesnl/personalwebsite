@@ -45,3 +45,4 @@ django_secret_key.txt
 lastfm_api_key.txt
 server.crt
 server.key
+*.swp

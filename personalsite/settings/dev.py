@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'frontpage',
     'blog',
     'personalsite',
+    'ping',
 )
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
