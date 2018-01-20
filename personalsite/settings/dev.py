@@ -184,7 +184,10 @@ LOGGING = {
     }
 }
 
+
 # Site specific settings
+
+# LOGIN_URL = '/accounts/login/'
 
 try:
     with open('/etc/personalsite/lastfm_api_key.txt') as f:
