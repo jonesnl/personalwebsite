@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
 
 from frontpage import views
@@ -7,10 +7,10 @@ from frontpage import views
 # from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-                       url(r'^$', views.index, name='index'),
-                       url(r'^blog/', include('blog.urls')),
-                       url(r'^admin/', include(admin.site.urls)),
+urlpatterns = [url(r'^$', views.index, name='index'),
+               url(r'^blog/', include('blog.urls')),
+               url(r'^admin/', include(admin.site.urls)),
+               ]
 
     # Examples:
     # url(r'^$', 'personalsite.views.home', name='home'),
@@ -21,4 +21,3 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-)
