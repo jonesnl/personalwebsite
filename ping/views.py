@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, get_object_or_404
+from django.template import loader
+from django.urls import reverse
+
+from .models import Ping
 
 # Create your views here.
 
@@ -28,6 +32,13 @@ def logout_view(requst):
     print('successful logout')
     # redirect to success page
 
-@login_required
+@login_required(login_url='/ping/accounts/login')
 def test_view(request):
-    return HttpResponse('hello world!')
+    if request.method == 'GET':
+        template = loader.get_template('ping/index.html')
+        return HttpResponse(template.render(request=request))
+    elif request.method == 'POST':
+        ping_obj = get_object_or_404(Ping, user=request.user)
+        ping_obj.pinging = True
+        ping_obj.save()
+        return HttpResponseRedirect(reverse('ping'))
