@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% for ping in pinging_list %}
+<p><b>{{ ping.user }}</b> is pinging.</p>
+{% endfor %}
 <p>
 <form class="form-inline" method="post" action="{% url 'ping' %}">
   <button type="submit" class="btn btn-primary">Ping!</button>
